@@ -11,21 +11,22 @@ import {
   Text,
   View
 } from 'react-native';
+import DayItem from './src/day-item';
 
-class WeekDays extends Component {
+const DAYS = ['Monday', 'Tuesday', 'Wednesday','Thursday','Friday','Saturday','Sunday'];
+
+class WeekDays extends Component {  
+  days() {
+    return DAYS.map((day) => <DayItem day={day} key={day}/> );    
+  }
+  
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
+        <Text>
+          Days of the week
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        {this.days()}
       </View>
     );
   }
